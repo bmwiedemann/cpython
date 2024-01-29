@@ -403,6 +403,8 @@ def _walk(top, topdown, onerror, followlinks):
                 if walk_into:
                     walk_dirs.append(entry.path)
 
+    dirs.sort()
+    nondirs.sort()
     # Yield before recursion if going top down
     if topdown:
         yield top, dirs, nondirs
@@ -419,7 +421,7 @@ def _walk(top, topdown, onerror, followlinks):
                 yield from _walk(new_path, topdown, onerror, followlinks)
     else:
         # Recurse into sub-directories
-        for new_path in walk_dirs:
+        for new_path in sorted(walk_dirs):
             yield from _walk(new_path, topdown, onerror, followlinks)
         # Yield after recursion if going bottom up
         yield top, dirs, nondirs
