@@ -4259,6 +4259,11 @@ exit:
         Py_END_ALLOW_THREADS
     }
 
+    if(list)
+        if(PyList_Sort(list)) {
+            Py_DECREF(list);
+            return NULL;
+        }
     return list;
 }  /* end of _posix_listdir */
 #endif  /* which OS */
