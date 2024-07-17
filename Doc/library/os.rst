@@ -1257,9 +1257,9 @@ as internal buffering of data.
    .. versionadded:: 3.3
 
 
-.. function:: open(path, flags, mode=0o777, *, dir_fd=None)
+.. function:: open(file, flags, mode=0o777, *, dir_fd=None)
 
-   Open the file *path* and set various flags according to *flags* and possibly
+   Open the file *file* and set various flags according to *flags* and possibly
    its mode according to *mode*.  When computing *mode*, the current umask value
    is first masked out.  Return the file descriptor for the newly opened file.
    The new file descriptor is :ref:`non-inheritable <fd_inheritance>`.
@@ -1272,7 +1272,7 @@ as internal buffering of data.
    This function can support :ref:`paths relative to directory descriptors
    <dir_fd>` with the *dir_fd* parameter.
 
-   .. audit-event:: open path,mode,flags os.open
+   .. audit-event:: open file,mode,flags os.open
 
    .. versionchanged:: 3.4
       The new file descriptor is now non-inheritable.

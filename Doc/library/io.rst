@@ -172,7 +172,7 @@ High-level Module Interface
 
    This is an alias for the builtin :func:`open` function.
 
-   .. audit-event:: open path,mode,flags io.open
+   .. audit-event:: open file,mode,flags io.open
 
       This function raises an :ref:`auditing event <auditing>` ``open`` with
       arguments *path*, *mode* and *flags*. The *mode* and *flags*
